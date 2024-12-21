@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тапай Хомяка</title>
+<style>
+    body { text-align: center; }
+    #hamster { cursor: pointer; }
+    #score { font-size: 24px; }   
+</style>     
+</head>
+<body>
+    <h1>Тапай Хомяка!</h1>
+    <div id="score">Очки: 0</div>
+    <img id="hamster" src="img/image.webp" alt="Хомяк" width="100">
+    <script>
+        let score = 0;
+        document.getElementById('hamster').onclick = function() {
+            score++; 
+            document.getElementById('score').innerText = "Очки: " + score;
+            spawnPrize(); // Спавним приз
+        };
+
+    function spawnPrize () {
+        const prize = document.createElement('div');
+        prize.innerText = "+1 приз!";
+        prize.style.position = 'absolute';
+        prize.style.left = Math.random() * window.innerWidth + 'px'
+        prize.style.top = Math.random() * window.innerHeight + 'px'
+        document.body.appendChild(prize);
+        setTimeout (() => prize.remove (), 2000); 
+    }
+
+
+
+    </script>
+</body>
+</html>
